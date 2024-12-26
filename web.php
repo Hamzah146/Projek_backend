@@ -74,9 +74,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('pegawai', PegawaiController::class);
 
 // routing view Anggota
-Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
-Route::get('/anggota/create', [AnggotaController::class, 'create'])->name('anggota.create');
-Route::post('/anggota', [AnggotaController::class, 'store'])->name('anggota.store');
+Route::resource('anggota', AnggotaController::class);
 
 // routing view Pengarang, Penerbit, Kategori, Buku
 Route::resource('/pengarang', PengarangController::class);
@@ -94,3 +92,5 @@ Route::get('bukupdf',[BukuController::class, 'bukuPDF']);
 
 //routing view pengarang
 Route::resource('pengarang', PengarangController::class);
+
+Route::get('bukupdf',[AnggotaController::class, 'bukuPDF']);
